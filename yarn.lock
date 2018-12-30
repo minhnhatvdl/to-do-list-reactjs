@@ -6783,6 +6783,10 @@ raf@3.4.0:
   dependencies:
     performance-now "^2.1.0"
 
+random-id@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/random-id/-/random-id-1.0.3.tgz#e9d7183caa1759a68582f3da4230454aded0eea3"
+
 randomatic@^3.0.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/randomatic/-/randomatic-3.1.1.tgz#b776efc59375984e36c537b2f51a1f0aff0da1ed"
@@ -6865,7 +6869,7 @@ react-dev-utils@^7.0.0:
     strip-ansi "4.0.0"
     text-table "0.2.0"
 
-react-dom@16.7.0:
+react-dom@^16.7.0:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.7.0.tgz#a17b2a7ca89ee7390bc1ed5eb81783c7461748b8"
   dependencies:
@@ -6932,7 +6936,7 @@ react-scripts@2.1.2:
   optionalDependencies:
     fsevents "1.2.4"
 
-react@16.7.0:
+react@^16.7.0:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.7.0.tgz#b674ec396b0a5715873b350446f7ea0802ab6381"
   dependencies:
