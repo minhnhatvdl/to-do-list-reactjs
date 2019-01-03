@@ -12,7 +12,7 @@ class Task extends Component {
         ))
       ) : (
         <tr>
-          <td colspan="7" className="text-center">List of tasks is empty</td>
+          <td colSpan="7" className="text-center">List of tasks is empty</td>
         </tr>
       );
     return (
