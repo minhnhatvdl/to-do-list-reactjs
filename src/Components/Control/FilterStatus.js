@@ -7,6 +7,14 @@ class FilterStatus extends Component {
         <ul className="list-unstyled text-left">
           Filter
           <li className="py-1 display-5 lead">
+            <i className="fa fa-coffee mr-2" />
+            Not yet started
+          </li>
+          <li className="py-1 display-5 lead">
+            <i className="fa fa-spinner mr-2" />
+            In process
+          </li>
+          <li className="py-1 display-5 lead">
             <i className="fa fa-check-square-o mr-2" />
             Finish
           </li>

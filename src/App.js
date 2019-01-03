@@ -9,7 +9,7 @@ import ListTask from "./Data/InitTask";
 
 class App extends Component {
   render() {
-    console.log(ListTask);
+    const { listTask } = ListTask
     return (
       <div>
         <h1 className="text-center my-2">Workflow Management</h1>
@@ -18,7 +18,7 @@ class App extends Component {
             {/* PANEL */}
             <Control />
             {/* DISPLAY */}
-            <Task />
+            <Task listTask={listTask} />
           </div>
         </div>
         {/* The Modal */}

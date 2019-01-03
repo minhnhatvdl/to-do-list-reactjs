@@ -5,6 +5,9 @@ import Thead from "./Task/Thead";
 
 class Task extends Component {
   render() {
+    const templateListTask = this.props.listTask.map((task, index) => (
+      <Item key={index} item={task} index={index} />
+    ));
     return (
       <div className="col-md-9 px-0">
         <div className="container-fluid px-0">
@@ -28,11 +31,7 @@ class Task extends Component {
         <div className="px-3">
           <table className="table table-hover">
             <Thead />
-            <tbody>
-              <Item />
-              <Item />
-              <Item />
-            </tbody>
+            <tbody>{templateListTask}</tbody>
           </table>
         </div>
       </div>

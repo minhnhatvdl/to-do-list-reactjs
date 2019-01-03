@@ -3,8 +3,7 @@ import Task from "./Task";
 import ListTask from "./ListTask";
 
 const listTask = new ListTask();
-TaskData.map(task => {
-  let id = task.id;
+TaskData.forEach(task => {
   let newTask = new Task(...Object.values(task));
   listTask.addTask(newTask);
 });

@@ -1,7 +1,7 @@
 var randomId = require("random-id");
 
 // Priority --> 1: High, 2: Medium, 3: Low
-
+// Status --> 1: not yet started, 2: in progress, 3: finish, 4: cancel
 const TaskData = [
     {
         id: randomId(5, "aA0"),
@@ -17,7 +17,7 @@ const TaskData = [
         name: "AngularJS",
         labelArr: ["Frontend", "API"],
         priority: 2, 
-        memberIdArr: ["user_4", "user_5"],
+        memberIdArr: ["user_1", "user_3"],
         status: 1,
         description: "Angular"
     },
@@ -26,8 +26,8 @@ const TaskData = [
         name: "Python",
         labelArr: ["Backend"],
         priority: 2, 
-        memberIdArr: ["user_3", "user_5"],
-        status: 1,
+        memberIdArr: ["user_3", "user_2"],
+        status: 4,
         description: "Python"
     },
     {
@@ -35,7 +35,7 @@ const TaskData = [
         name: "Hackathon",
         labelArr: ["Frontend", "Backend", "Issue"],
         priority: 3, 
-        memberIdArr: ["user_2", "user_3", "user_4", "user_5"],
+        memberIdArr: ["user_1", "user_3", "user_2"],
         status: 3,
         description: "Test coding"
     },
