@@ -8,17 +8,40 @@ import Task from "./Components/Task";
 import ListTask from "./Data/InitTask";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tasks: []
+    };
+  }
+  componentWillMount() {
+    // get listTask on localStorage
+    const tasks = JSON.parse(localStorage.getItem("listTask"))
+      ? JSON.parse(localStorage.getItem("listTask")).listTask
+      : [];
+    this.setState({
+      tasks
+    });
+  }
+  // set listTask on localStorage
+  generateListTask() {
+    localStorage.setItem("listTask", JSON.stringify(ListTask));
+    const tasks = JSON.parse(localStorage.getItem("listTask")).listTask;
+    this.setState({
+      tasks
+    });
+  }
   render() {
-    const { listTask } = ListTask
+    const { tasks } = this.state;
     return (
       <div>
         <h1 className="text-center my-2">Workflow Management</h1>
         <div className="container-fluid">
           <div className="row">
             {/* PANEL */}
-            <Control />
+            <Control generateListTask={this.generateListTask.bind(this)} />
             {/* DISPLAY */}
-            <Task listTask={listTask} />
+            <Task listTask={tasks} />
           </div>
         </div>
         {/* The Modal */}

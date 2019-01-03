@@ -19,7 +19,7 @@ class Control extends Component {
         {/* Create a new task */}
         <CreateNewTask />
         {/* Init tasks */}
-        <InitTask />
+        <InitTask generateListTask={this.props.generateListTask} />
         {/* Filter */}
         <div className="px-3">
           {/* Filter Status */}

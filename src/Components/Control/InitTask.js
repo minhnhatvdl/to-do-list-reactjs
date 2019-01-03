@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class InitTask extends Component {
-    render() {
-        return (
-            <button
-            type="button"
-            className="btn btn--initTask"
-            data-toggle="modal"
-            data-target="#modalTask"
-          >
-            <i className="fa fa-pencil-square-o" />
-            Init tasks
-          </button>
-        );
-    }
+  render() {
+    return (
+      <button
+        type="button"
+        className="btn btn--initTask"
+        onClick={this.props.generateListTask}
+      >
+        <i className="fa fa-pencil-square-o" />
+        Get tasks from localStorage
+      </button>
+    );
+  }
 }
 
 export default InitTask;

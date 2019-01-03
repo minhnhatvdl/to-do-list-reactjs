@@ -5,9 +5,16 @@ import Thead from "./Task/Thead";
 
 class Task extends Component {
   render() {
-    const templateListTask = this.props.listTask.map((task, index) => (
-      <Item key={index} item={task} index={index} />
-    ));
+    const templateListTask =
+      this.props.listTask.length > 0 ? (
+        this.props.listTask.map((task, index) => (
+          <Item key={index} item={task} index={index} />
+        ))
+      ) : (
+        <tr>
+          <td colspan="7" className="text-center">List of tasks is empty</td>
+        </tr>
+      );
     return (
       <div className="col-md-9 px-0">
         <div className="container-fluid px-0">
@@ -22,7 +29,7 @@ class Task extends Component {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Tìm kiếm công việc"
+                  placeholder="Search a task"
                 />
               </div>
             </div>
