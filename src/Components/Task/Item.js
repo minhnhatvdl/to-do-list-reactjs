@@ -35,7 +35,7 @@ class Item extends Component {
     // priority
     let textPriority;
     let colorPriority;
-    switch (item.priority) {
+    switch (parseInt(item.priority)) {
       case 1:
         textPriority = "High";
         colorPriority = "text-danger";

@@ -17,7 +17,7 @@ class App extends Component {
   componentWillMount() {
     // get listTask on localStorage
     const tasks = JSON.parse(localStorage.getItem("listTask"))
-      ? JSON.parse(localStorage.getItem("listTask")).listTask
+      ? JSON.parse(localStorage.getItem("listTask"))
       : [];
     this.setState({
       tasks
@@ -25,8 +25,16 @@ class App extends Component {
   }
   // set listTask on localStorage
   generateListTask() {
-    localStorage.setItem("listTask", JSON.stringify(ListTask));
-    const tasks = JSON.parse(localStorage.getItem("listTask")).listTask;
+    localStorage.setItem("listTask", JSON.stringify(ListTask.listTask));
+    const tasks = JSON.parse(localStorage.getItem("listTask"));
+    this.setState({
+      tasks
+    });
+  }
+  // add a new task
+  addTask(task) {
+    const tasks = [...this.state.tasks, task];
+    localStorage.setItem("listTask", JSON.stringify(tasks));
     this.setState({
       tasks
     });
@@ -45,7 +53,7 @@ class App extends Component {
           </div>
         </div>
         {/* The Modal */}
-        <Modal />
+        <Modal addTask={this.addTask.bind(this)} />
       </div>
     );
   }
