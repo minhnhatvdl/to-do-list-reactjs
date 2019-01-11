@@ -9,7 +9,7 @@ class InitTask extends Component {
         onClick={this.props.generateListTask}
       >
         <i className="fa fa-pencil-square-o" />
-        Get tasks from localStorage
+        Get tasks
       </button>
     );
   }

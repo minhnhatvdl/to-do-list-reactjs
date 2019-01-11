@@ -22,6 +22,18 @@ class Item extends Component {
     }
     return colorLabel;
   }
+  // edit a task
+  editTask() {
+    this.props.editTask(this.props.item);
+  }
+  // change status
+  onChangeStatus(event) {
+    const task = {
+      ...this.props.item,
+      [event.target.name]: +event.target.value
+    };
+    this.props.changeStatus(task);
+  }
   render() {
     const { index, item } = this.props;
     // template list label
@@ -85,10 +97,27 @@ class Item extends Component {
           {textPriority}
         </td>
         <td className="text-center">{templateListUser}</td>
-        <td className="text-center">
-          <button type="button" className="btn btn-outline-danger">
+        <td className="text-center d-flex justify-content-center align-items-center">
+          <button
+            type="button"
+            className="btn btn-outline-danger mr-2"
+            onClick={this.editTask.bind(this)}
+            data-toggle="modal"
+            data-target="#modalTask"
+          >
             Modify
           </button>
+          <select
+            name="status"
+            className="form-control"
+            value={item.status}
+            onChange={this.onChangeStatus.bind(this)}
+          >
+            <option value="1">Not yet started</option>
+            <option value="2">In process</option>
+            <option value="3">Finish</option>
+            <option value="4">Cancel</option>
+          </select>
         </td>
         <td className="text-center">
           <i className={`fa ${statusIconClass} mr-2`} />

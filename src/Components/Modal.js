@@ -19,7 +19,13 @@ class Modal extends Component {
   // submit a form
   onSubmit(event) {
     event.preventDefault();
-    this.props.addTask(this.state);
+    if (this.props.isAddTask) {
+      // add a task
+      this.props.addTask(this.state);
+    } else {
+      // edit a task
+      this.props.saveTask(this.state);
+    }
     // set default
     this.setState({
       id: randomId(5, "aA0"),
@@ -45,6 +51,27 @@ class Modal extends Component {
       [fieldName]: values
     });
   }
+  // change modal when modal receives props
+  componentWillReceiveProps(nextProps) {
+    const {
+      id,
+      name,
+      labelArr,
+      priority,
+      memberIdArr,
+      status,
+      description
+    } = nextProps.taskEditing;
+    this.setState({
+      id,
+      name,
+      labelArr,
+      priority,
+      memberIdArr,
+      status,
+      description
+    });
+  }
   render() {
     return (
       <div className="modal fade" id="modalTask">
@@ -54,7 +81,9 @@ class Modal extends Component {
             <form onSubmit={this.onSubmit.bind(this)}>
               {/* Modal Header */}
               <div className="modal-header">
-                <h4 className="modal-title">Create a new task</h4>
+                <h4 className="modal-title">
+                  {this.props.isAddTask ? "Create a new task" : "Edit a task"}
+                </h4>
                 <button type="button" className="close" data-dismiss="modal">
                   ×
                 </button>
@@ -146,7 +175,7 @@ class Modal extends Component {
               {/* Modal footer */}
               <div className="modal-footer">
                 <button type="submit" className="btn btn-success">
-                  Add
+                  {this.props.isAddTask ? "Add" : "Edit"}
                 </button>
                 <button
                   type="button"

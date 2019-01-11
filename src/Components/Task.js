@@ -8,7 +8,7 @@ class Task extends Component {
     const templateListTask =
       this.props.listTask.length > 0 ? (
         this.props.listTask.map((task, index) => (
-          <Item key={index} item={task} index={index} />
+          <Item key={index} item={task} index={index} editTask={this.props.editTask} changeStatus={this.props.changeStatus} />
         ))
       ) : (
         <tr>
@@ -16,7 +16,7 @@ class Task extends Component {
         </tr>
       );
     return (
-      <div className="col-md-9 px-0">
+      <div className="col-md-10 px-0">
         <div className="container-fluid px-0">
           <div className="row header header--right d-flex align-items-center mx-0">
             <div className="col-md-6">

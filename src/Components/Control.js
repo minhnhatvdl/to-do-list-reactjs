@@ -9,7 +9,7 @@ import Sort from "./Control/Sort";
 class Control extends Component {
   render() {
     return (
-      <div className="col-md-3 text-center px-0">
+      <div className="col-md-2 text-center px-0">
         <div className="header header--left d-flex align-items-center">
           <img src="./img/user_1.jpg" className="ml-2 user" alt="" />
           <h3 className="text-white d-inline font-weight-light ml-2">
@@ -17,7 +17,7 @@ class Control extends Component {
           </h3>
         </div>
         {/* Create a new task */}
-        <CreateNewTask />
+        <CreateNewTask openModalAddTask={this.props.openModalAddTask} />
         {/* Init tasks */}
         <InitTask generateListTask={this.props.generateListTask} />
         {/* Filter */}
