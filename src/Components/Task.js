@@ -25,6 +25,11 @@ class Task extends Component {
             task => task.labelArr.indexOf(filterValue) !== -1
           );
           break;
+        case "priority":
+          listTaskFilter = listTaskFilter.filter(
+            task => task.priority === +filterValue
+          );
+          break;
         default:
           listTaskFilter = [...listTask];
           break;

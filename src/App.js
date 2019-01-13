@@ -22,7 +22,7 @@ class App extends Component {
         status: 1, // Not yet started
         description: "",
         filterType: "",
-        filterValue: "",
+        filterValue: ""
       },
       isAddTask: true
     };
@@ -90,12 +90,20 @@ class App extends Component {
   }
   // filter
   filterTask(filterType, filterValue) {
+    console.log(filterType, filterValue);
     this.setState({
-      filterType, filterValue
-    })
+      filterType,
+      filterValue
+    });
   }
   render() {
-    const { tasks, taskEditing, isAddTask, filterType, filterValue } = this.state;
+    const {
+      tasks,
+      taskEditing,
+      isAddTask,
+      filterType,
+      filterValue
+    } = this.state;
     return (
       <div>
         <h1 className="text-center my-2">Workflow Management</h1>
