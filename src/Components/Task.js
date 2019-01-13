@@ -5,14 +5,43 @@ import Thead from "./Task/Thead";
 
 class Task extends Component {
   render() {
+    const {
+      listTask,
+      editTask,
+      changeStatus,
+      filterType,
+      filterValue
+    } = this.props;
+    let listTaskFilter = [...listTask];
+    if (filterValue !== "-1") {
+      switch (filterType) {
+        case "status":
+          listTaskFilter = listTaskFilter.filter(
+            task => task.status == filterValue
+          );
+          break;
+        default:
+          listTaskFilter = [...listTask];
+          break;
+      }
+    }
+    console.log(listTask, filterType, filterValue);
     const templateListTask =
-      this.props.listTask.length > 0 ? (
-        this.props.listTask.map((task, index) => (
-          <Item key={index} item={task} index={index} editTask={this.props.editTask} changeStatus={this.props.changeStatus} />
+      listTaskFilter.length > 0 ? (
+        listTaskFilter.map((task, index) => (
+          <Item
+            key={index}
+            item={task}
+            index={index}
+            editTask={editTask}
+            changeStatus={changeStatus}
+          />
         ))
       ) : (
         <tr>
-          <td colSpan="7" className="text-center">List of tasks is empty</td>
+          <td colSpan="7" className="text-center">
+            List of tasks is empty
+          </td>
         </tr>
       );
     return (

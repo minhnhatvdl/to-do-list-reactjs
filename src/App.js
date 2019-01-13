@@ -20,7 +20,9 @@ class App extends Component {
         priority: 3, // Low
         memberIdArr: [],
         status: 1, // Not yet started
-        description: ""
+        description: "",
+        filterType: "",
+        filterValue: "",
       },
       isAddTask: true
     };
@@ -86,8 +88,14 @@ class App extends Component {
   changeStatus(task) {
     this.saveTask(task);
   }
+  // filter
+  filterTask(filterType, filterValue) {
+    this.setState({
+      filterType, filterValue
+    })
+  }
   render() {
-    const { tasks, taskEditing, isAddTask } = this.state;
+    const { tasks, taskEditing, isAddTask, filterType, filterValue } = this.state;
     return (
       <div>
         <h1 className="text-center my-2">Workflow Management</h1>
@@ -97,12 +105,15 @@ class App extends Component {
             <Control
               generateListTask={this.generateListTask.bind(this)}
               openModalAddTask={this.openModalAddTask.bind(this)}
+              filterTask={this.filterTask.bind(this)}
             />
             {/* DISPLAY */}
             <Task
               listTask={tasks}
               editTask={this.editTask.bind(this)}
               changeStatus={this.changeStatus.bind(this)}
+              filterType={filterType}
+              filterValue={filterValue}
             />
           </div>
         </div>

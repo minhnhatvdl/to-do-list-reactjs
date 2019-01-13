@@ -23,7 +23,7 @@ class Control extends Component {
         {/* Filter */}
         <div className="px-3">
           {/* Filter Status */}
-          <FilterStatus />
+          <FilterStatus filterTask={this.props.filterTask} />
           {/* Filter Label */}
           <FilterLabel />
           {/* FIlter Priority */}
