@@ -48,6 +48,10 @@
   background-color: lightgreen;
 }
 
+.activeFilter {
+  background-color: lightgreen;
+}
+
 .filter--label ul>li:nth-child(1) > i{
   color: #389E0D ;
 }

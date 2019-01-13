@@ -106,6 +106,8 @@ class App extends Component {
               generateListTask={this.generateListTask.bind(this)}
               openModalAddTask={this.openModalAddTask.bind(this)}
               filterTask={this.filterTask.bind(this)}
+              filterType={filterType}
+              filterValue={filterValue}
             />
             {/* DISPLAY */}
             <Task
