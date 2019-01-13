@@ -34,7 +34,11 @@ class Control extends Component {
             filterValue={filterValue}
           />
           {/* Filter Label */}
-          <FilterLabel />
+          <FilterLabel
+            filterTask={filterTask}
+            filterType={filterType}
+            filterValue={filterValue}
+          />
           {/* FIlter Priority */}
           <FilterPriority />
           {/* Sort */}

@@ -17,7 +17,12 @@ class Task extends Component {
       switch (filterType) {
         case "status":
           listTaskFilter = listTaskFilter.filter(
-            task => task.status == filterValue
+            task => task.status.toString() === filterValue
+          );
+          break;
+        case "label":
+          listTaskFilter = listTaskFilter.filter(
+            task => task.labelArr.indexOf(filterValue) !== -1
           );
           break;
         default:
