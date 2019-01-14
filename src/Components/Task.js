@@ -84,7 +84,6 @@ class Task extends Component {
           break;
       }
     }
-    console.log(listTask, filterType, filterValue);
     const templateListTask =
       listTaskFilter.length > 0 ? (
         listTaskFilter.map((task, index) => (
