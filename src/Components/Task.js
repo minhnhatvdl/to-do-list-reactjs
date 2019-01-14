@@ -4,6 +4,9 @@ import Item from "./Task/Item";
 import Thead from "./Task/Thead";
 
 class Task extends Component {
+  searchTask(event) {
+    this.props.filterTask(event.target.name, event.target.value);
+  }
   render() {
     const {
       listTask,
@@ -28,6 +31,11 @@ class Task extends Component {
         case "priority":
           listTaskFilter = listTaskFilter.filter(
             task => task.priority === +filterValue
+          );
+          break;
+        case "search":
+          listTaskFilter = listTaskFilter.filter(
+            task => task.name.toLowerCase().indexOf(filterValue.toLowerCase()) !== -1
           );
           break;
         default:
@@ -69,6 +77,8 @@ class Task extends Component {
                   type="text"
                   className="form-control"
                   placeholder="Search a task"
+                  name="search"
+                  onChange={this.searchTask.bind(this)}
                 />
               </div>
             </div>

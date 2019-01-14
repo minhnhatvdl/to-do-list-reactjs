@@ -124,6 +124,7 @@ class App extends Component {
               changeStatus={this.changeStatus.bind(this)}
               filterType={filterType}
               filterValue={filterValue}
+              filterTask={this.filterTask.bind(this)}
             />
           </div>
         </div>
