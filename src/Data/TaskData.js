@@ -14,15 +14,6 @@ const TaskData = [
     },
     {
         id: randomId(5, "aA0"),
-        name: "AngularJS",
-        labelArr: ["Frontend", "API"],
-        priority: 2, 
-        memberIdArr: ["user_1", "user_3"],
-        status: 1,
-        description: "Angular"
-    },
-    {
-        id: randomId(5, "aA0"),
         name: "Python",
         labelArr: ["Backend"],
         priority: 2, 
@@ -39,6 +30,15 @@ const TaskData = [
         status: 3,
         description: "Test coding"
     },
+    {
+        id: randomId(5, "aA0"),
+        name: "AngularJS",
+        labelArr: ["Frontend", "API"],
+        priority: 2, 
+        memberIdArr: ["user_1", "user_3"],
+        status: 1,
+        description: "Angular"
+    }
 ]
 
 export default TaskData;

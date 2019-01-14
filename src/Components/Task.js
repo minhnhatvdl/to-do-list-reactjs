@@ -35,11 +35,52 @@ class Task extends Component {
           break;
         case "search":
           listTaskFilter = listTaskFilter.filter(
-            task => task.name.toLowerCase().indexOf(filterValue.toLowerCase()) !== -1
+            task =>
+              task.name.toLowerCase().indexOf(filterValue.toLowerCase()) !== -1
           );
           break;
+        case "sort":
+          if(filterValue === "asc") {
+            listTaskFilter.sort((taskA, taskB) => {
+              let nameA = taskA.name.toUpperCase(); // ignore upper and lowercase
+              let nameB = taskB.name.toUpperCase(); // ignore upper and lowercase
+              if (nameA < nameB) {
+                return -1;
+              }
+              if (nameA > nameB) {
+                return 1;
+              }
+              // names must be equal
+              return 0;
+            });
+          } else {
+            listTaskFilter.sort((taskA, taskB) => {
+              let nameA = taskA.name.toUpperCase(); // ignore upper and lowercase
+              let nameB = taskB.name.toUpperCase(); // ignore upper and lowercase
+              if (nameA < nameB) {
+                return 1;
+              }
+              if (nameA > nameB) {
+                return -1;
+              }
+              // names must be equal
+              return 0;
+            });
+          }
+          break;
         default:
-          listTaskFilter = [...listTask];
+          listTaskFilter.sort((taskA, taskB) => {
+            let nameA = taskA.name.toUpperCase(); // ignore upper and lowercase
+            let nameB = taskB.name.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            // names must be equal
+            return 0;
+          });
           break;
       }
     }

@@ -46,7 +46,11 @@ class Control extends Component {
             filterValue={filterValue}
           />
           {/* Sort */}
-          <Sort />
+          <Sort
+            filterTask={filterTask}
+            filterType={filterType}
+            filterValue={filterValue}
+          />
         </div>
       </div>
     );
