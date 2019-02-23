@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import { Checkbox, CheckboxGroup } from "react-checkbox-group";
+import { connect } from "react-redux";
+import * as actions from "../Actions/index";
+
 var randomId = require("random-id");
 
 class Modal extends Component {
@@ -195,4 +198,15 @@ class Modal extends Component {
   }
 }
 
-export default Modal;
+const mapDispatchToProps = dispatch => {
+  return {
+    addTask: newTask => {
+      dispatch(actions.addNewTask(newTask));
+    }
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Modal);
