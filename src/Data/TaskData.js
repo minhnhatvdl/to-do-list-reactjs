@@ -5,7 +5,7 @@ var randomId = require("random-id");
 const TaskData = [
     {
         id: randomId(5, "aA0"),
-        name: "ReactJS",
+        name: "ReactJS lala",
         labelArr: ["Frontend", "Backend"],
         priority: 1, 
         memberIdArr: ["user_2"],

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../Actions/index";
 
 class InitTask extends Component {
   render() {
@@ -15,4 +17,14 @@ class InitTask extends Component {
   }
 }
 
-export default InitTask;
+const mapDispatchToProps = dispatch => {
+  return {
+    generateListTask: () => {
+      dispatch(actions.initAllTask());
+    }
+  };
+};
+export default connect(
+  null,
+  mapDispatchToProps
+)(InitTask);

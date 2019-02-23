@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
 import Item from "./Task/Item";
 import Thead from "./Task/Thead";
 
@@ -8,6 +8,7 @@ class Task extends Component {
     this.props.filterTask(event.target.name, event.target.value);
   }
   render() {
+    console.log(this.props);
     const {
       listTask,
       editTask,
@@ -40,7 +41,7 @@ class Task extends Component {
           );
           break;
         case "sort":
-          if(filterValue === "asc") {
+          if (filterValue === "asc") {
             listTaskFilter.sort((taskA, taskB) => {
               let nameA = taskA.name.toUpperCase(); // ignore upper and lowercase
               let nameB = taskB.name.toUpperCase(); // ignore upper and lowercase
@@ -134,5 +135,12 @@ class Task extends Component {
     );
   }
 }
-
-export default Task;
+const mapStateToProps = state => {
+  return {
+    listTask: state.listTask
+  };
+};
+export default connect(
+  mapStateToProps,
+  null
+)(Task);
