@@ -22,25 +22,28 @@ class Modal extends Component {
   // submit a form
   onSubmit(event) {
     event.preventDefault();
-    if (this.props.isAddTask) {
-      // add a task
-      this.props.addTask(this.state);
-    } else {
-      // edit a task
-      this.props.saveTask(this.state);
-    }
-    // set default
-    this.setState({
-      id: randomId(5, "aA0"),
-      name: "",
-      labelArr: [],
-      priority: 3, // Low
-      memberIdArr: [],
-      status: 1, // Not yet started
-      description: ""
-    });
+    // this.props.addNewTask(this.state);
+    this.props.updateTask(this.state);
+
+    // if (this.props.isAddTask) {
+    //   // add a task
+    //   this.props.addTask(this.state);
+    // } else {
+    //   // edit a task
+    //   this.props.saveTask(this.state);
+    // }
+    // // set default
+    // this.setState({
+    //   id: randomId(5, "aA0"),
+    //   name: "",
+    //   labelArr: [],
+    //   priority: 3, // Low
+    //   memberIdArr: [],
+    //   status: 1, // Not yet started
+    //   description: ""
+    // });
     // close a modal
-    $("#btnCloseModal").click();
+    // $("#btnCloseModal").click();
   }
   // change field data
   onChange(event) {
@@ -76,6 +79,7 @@ class Modal extends Component {
     });
   }
   render() {
+    const { isAddTask } = this.props;
     return (
       <div className="modal fade" id="modalTask">
         <div className="modal-dialog modal-lg">
@@ -85,7 +89,7 @@ class Modal extends Component {
               {/* Modal Header */}
               <div className="modal-header">
                 <h4 className="modal-title">
-                  {this.props.isAddTask ? "Create a new task" : "Edit a task"}
+                  {isAddTask ? "Create a new task" : "Edit a task"}
                 </h4>
                 <button type="button" className="close" data-dismiss="modal">
                   ×
@@ -178,7 +182,7 @@ class Modal extends Component {
               {/* Modal footer */}
               <div className="modal-footer">
                 <button type="submit" className="btn btn-success">
-                  {this.props.isAddTask ? "Add" : "Edit"}
+                  {isAddTask ? "Add" : "Edit"}
                 </button>
                 <button
                   type="button"
@@ -198,15 +202,25 @@ class Modal extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    taskEditing: state.taskEditing,
+    isAddTask: state.isAddTask
+  }
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     addTask: newTask => {
       dispatch(actions.addNewTask(newTask));
+    },
+    updateTask: taskUpdating => {
+      dispatch(actions.updateTask(taskUpdating));
     }
   };
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Modal);

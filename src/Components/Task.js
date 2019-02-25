@@ -8,7 +8,6 @@ class Task extends Component {
     this.props.filterTask(event.target.name, event.target.value);
   }
   render() {
-    console.log(this.props);
     const {
       listTask,
       editTask,

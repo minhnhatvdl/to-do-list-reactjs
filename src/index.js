@@ -8,7 +8,10 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import myReducers from "./Reducers/index";
 // create a store
-const store = createStore(myReducers);
+const store = createStore(
+  myReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 //
 ReactDOM.render(
   <Provider store={store}>

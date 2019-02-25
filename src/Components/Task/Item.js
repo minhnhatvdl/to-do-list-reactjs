@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../Actions/index";
 
 class Item extends Component {
   // get color label
@@ -33,6 +35,13 @@ class Item extends Component {
       [event.target.name]: +event.target.value
     };
     this.props.changeStatus(task);
+  }
+  // handler click on button Modify
+  handlerClickOnModify() {
+    // convert state isAddTask to false
+    this.props.convertIsAddTaskToFalse();
+    // edit a task
+    this.props.editTask(this.props.item);
   }
   render() {
     const { index, item } = this.props;
@@ -101,7 +110,7 @@ class Item extends Component {
           <button
             type="button"
             className="btn btn-outline-danger mr-2"
-            onClick={this.editTask.bind(this)}
+            onClick={this.handlerClickOnModify.bind(this)}
             data-toggle="modal"
             data-target="#modalTask"
           >
@@ -127,4 +136,18 @@ class Item extends Component {
   }
 }
 
-export default Item;
+const mapDispatchToProps = dispatch => {
+  return {
+    editTask: taskEditing => {
+      dispatch(actions.editTask(taskEditing));
+    },
+    convertIsAddTaskToFalse: () => {
+      dispatch(actions.convertIsAddTaskToFalse())
+    }
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Item);

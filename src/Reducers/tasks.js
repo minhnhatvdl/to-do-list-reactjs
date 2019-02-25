@@ -1,7 +1,6 @@
 import * as types from "../Constants/actionType";
 import ListTask from "../Data/InitTask";
-
-// let initState = [{ listTask: ListTask.listTask }];
+// state listTask: type array of object
 let listTaskJSON = JSON.parse(localStorage.getItem("listTask"));
 let initState = listTaskJSON ? listTaskJSON : [];
 // set reducer
@@ -19,6 +18,12 @@ let reducer = (state = initState, action) => {
     case types.ADD_NEW_TASK:
       console.log("add a new task");
       res = [...res, action.newTask];
+      localStorage.setItem("listTask", JSON.stringify(res));
+      break;
+    case types.UPDATE_TASK:
+      console.log("update a task");
+      const index = res.findIndex(task => task.id === action.taskUpdating.id);
+      res[index] = action.taskUpdating;
       localStorage.setItem("listTask", JSON.stringify(res));
       break;
     default:

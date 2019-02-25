@@ -1,3 +1,8 @@
 export const LIST_ALL_TASK = "LIST_ALL_TASK";
 export const INIT_ALL_TASK = "INIT_ALL_TASK";
 export const ADD_NEW_TASK = "ADD_NEW_TASK";
+export const EDIT_TASK = "EDIT_TASK";
+export const UPDATE_TASK = "UPDATE_TASK";
+export const CONVERT_IS_ADD_TASK_TO_TRUE = "CONVERT_IS_ADD_TASK_TO_TRUE";
+export const CONVERT_IS_ADD_TASK_TO_FALSE = "CONVERT_IS_ADD_TASK_TO_FALSE";
+export const CLEAR_FORM = "CLEAR_FORM";

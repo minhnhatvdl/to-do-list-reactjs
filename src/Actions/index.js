@@ -18,3 +18,35 @@ export const addNewTask = newTask => {
         newTask
     }
 }
+// edit a task
+export const editTask = taskEditing => {
+    return {
+        type: types.EDIT_TASK,
+        taskEditing
+    }
+}
+// update a task
+export const updateTask = taskUpdating => {
+    return {
+        type: types.UPDATE_TASK,
+        taskUpdating
+    }
+}
+// convert state isAddTask to true
+export const convertIsAddTaskToTrue = () => {
+    return {
+        type: types.CONVERT_IS_ADD_TASK_TO_TRUE
+    }
+}
+// convert state isAddTask to false
+export const convertIsAddTaskToFalse = () => {
+    return {
+        type: types.CONVERT_IS_ADD_TASK_TO_FALSE
+    }
+}
+// clear a form
+export const clearForm = () => {
+    return {
+        type: types.CLEAR_FORM
+    }
+}
