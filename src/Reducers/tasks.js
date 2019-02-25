@@ -6,13 +6,16 @@ let initState = listTaskJSON ? listTaskJSON : [];
 // set reducer
 let reducer = (state = initState, action) => {
   let res = state;
+  let listTask;
+  let index;
   switch (action.type) {
     case types.LIST_ALL_TASK:
       res = state;
       break;
     case types.INIT_ALL_TASK:
       console.log("init list of tasks from localStorage");
-      localStorage.setItem("listTask", JSON.stringify(ListTask.listTask));
+      listTask = ListTask.listTask;
+      localStorage.setItem("listTask", JSON.stringify(listTask));
       window.location.reload();
       break;
     case types.ADD_NEW_TASK:
@@ -22,8 +25,21 @@ let reducer = (state = initState, action) => {
       break;
     case types.UPDATE_TASK:
       console.log("update a task");
-      let listTask = JSON.parse(localStorage.getItem("listTask"));
-      const index = listTask.findIndex(task => task.id === action.taskUpdating.id);
+      listTask = JSON.parse(localStorage.getItem("listTask"));
+      index = listTask.findIndex(
+        task => task.id === action.taskUpdating.id
+      );
+      listTask[index] = action.taskUpdating;
+      res = [...listTask];
+      console.log(res);
+      localStorage.setItem("listTask", JSON.stringify(res));
+      break;
+    case types.CHANGE_STATUS_TASK:
+      console.log("change status of task");
+      listTask = JSON.parse(localStorage.getItem("listTask"));
+      index = listTask.findIndex(
+        task => task.id === action.taskUpdating.id
+      );
       listTask[index] = action.taskUpdating;
       res = [...listTask];
       console.log(res);

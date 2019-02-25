@@ -50,3 +50,10 @@ export const clearForm = () => {
         type: types.CLEAR_FORM
     }
 }
+// change status of task
+export const changeStatusTask = taskUpdating => {
+    return {
+        type: types.CHANGE_STATUS_TASK,
+        taskUpdating
+    }
+}

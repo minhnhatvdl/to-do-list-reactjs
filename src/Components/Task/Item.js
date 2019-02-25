@@ -30,11 +30,11 @@ class Item extends Component {
   }
   // change status
   onChangeStatus(event) {
-    const task = {
+    const taskUpdating = {
       ...this.props.item,
       [event.target.name]: +event.target.value
     };
-    this.props.changeStatus(task);
+    this.props.changeStatusTask(taskUpdating);
   }
   // handler click on button Modify
   handlerClickOnModify() {
@@ -142,7 +142,10 @@ const mapDispatchToProps = dispatch => {
       dispatch(actions.editTask(taskEditing));
     },
     convertIsAddTaskToFalse: () => {
-      dispatch(actions.convertIsAddTaskToFalse())
+      dispatch(actions.convertIsAddTaskToFalse());
+    },
+    changeStatusTask: taskUpdating => {
+      dispatch(actions.changeStatusTask(taskUpdating));
     }
   };
 };
