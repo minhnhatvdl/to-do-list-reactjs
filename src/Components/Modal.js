@@ -22,28 +22,15 @@ class Modal extends Component {
   // submit a form
   onSubmit(event) {
     event.preventDefault();
-    // this.props.addNewTask(this.state);
-    this.props.updateTask(this.state);
-
-    // if (this.props.isAddTask) {
-    //   // add a task
-    //   this.props.addTask(this.state);
-    // } else {
-    //   // edit a task
-    //   this.props.saveTask(this.state);
-    // }
-    // // set default
-    // this.setState({
-    //   id: randomId(5, "aA0"),
-    //   name: "",
-    //   labelArr: [],
-    //   priority: 3, // Low
-    //   memberIdArr: [],
-    //   status: 1, // Not yet started
-    //   description: ""
-    // });
+    if (this.props.isAddTask) {
+      // add a task
+      this.props.addNewTask(this.state);
+    } else {
+      // edit a task
+      this.props.updateTask(this.state);
+    }
     // close a modal
-    // $("#btnCloseModal").click();
+    $("#btnCloseModal").click();
   }
   // change field data
   onChange(event) {
@@ -206,12 +193,12 @@ const mapStateToProps = state => {
   return {
     taskEditing: state.taskEditing,
     isAddTask: state.isAddTask
-  }
+  };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    addTask: newTask => {
+    addNewTask: newTask => {
       dispatch(actions.addNewTask(newTask));
     },
     updateTask: taskUpdating => {

@@ -22,8 +22,11 @@ let reducer = (state = initState, action) => {
       break;
     case types.UPDATE_TASK:
       console.log("update a task");
-      const index = res.findIndex(task => task.id === action.taskUpdating.id);
-      res[index] = action.taskUpdating;
+      let listTask = JSON.parse(localStorage.getItem("listTask"));
+      const index = listTask.findIndex(task => task.id === action.taskUpdating.id);
+      listTask[index] = action.taskUpdating;
+      res = [...listTask];
+      console.log(res);
       localStorage.setItem("listTask", JSON.stringify(res));
       break;
     default:

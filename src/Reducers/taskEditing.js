@@ -1,7 +1,9 @@
 import * as types from "../Constants/actionType";
+// randomId
+var randomId = require("random-id");
 // set state taskEditing: type Task
 let initState = {
-  id: "",
+  id: randomId(5, "aA0"),
   name: "",
   labelArr: [],
   priority: 3, // Low
@@ -21,7 +23,7 @@ let reducer = (state = initState, action) => {
     case types.CLEAR_FORM:
       console.log("clear form");
       res = {
-        id: "",
+        id: randomId(5, "aA0"),
         name: "",
         labelArr: [],
         priority: 3, // Low
