@@ -65,6 +65,14 @@ class FilterLabel extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  const { filterType, filterValue } = state.filterTask;
+  return {
+    filterType,
+    filterValue
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     filterTask: (filterType, filterValue) => {
@@ -74,6 +82,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(FilterLabel);
