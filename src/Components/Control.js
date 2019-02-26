@@ -8,13 +8,6 @@ import Sort from "./Control/Sort";
 
 class Control extends Component {
   render() {
-    const {
-      openModalAddTask,
-      generateListTask,
-      filterTask,
-      filterType,
-      filterValue
-    } = this.props;
     return (
       <div className="col-md-2 text-center px-0">
         <div className="header header--left d-flex align-items-center">
@@ -22,35 +15,19 @@ class Control extends Component {
           <h3 className="text-white d-inline font-weight-light ml-2">Admin</h3>
         </div>
         {/* Create a new task */}
-        <CreateNewTask openModalAddTask={openModalAddTask} />
+        <CreateNewTask />
         {/* Init tasks */}
-        <InitTask generateListTask={generateListTask} />
+        <InitTask />
         {/* Filter */}
         <div className="px-3">
           {/* Filter Status */}
-          <FilterStatus
-            filterTask={filterTask}
-            filterType={filterType}
-            filterValue={filterValue}
-          />
+          <FilterStatus />
           {/* Filter Label */}
-          <FilterLabel
-            filterTask={filterTask}
-            filterType={filterType}
-            filterValue={filterValue}
-          />
+          <FilterLabel />
           {/* FIlter Priority */}
-          <FilterPriority
-            filterTask={filterTask}
-            filterType={filterType}
-            filterValue={filterValue}
-          />
+          <FilterPriority />
           {/* Sort */}
-          <Sort
-            filterTask={filterTask}
-            filterType={filterType}
-            filterValue={filterValue}
-          />
+          <Sort />
         </div>
       </div>
     );

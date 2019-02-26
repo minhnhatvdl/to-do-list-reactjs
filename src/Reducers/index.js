@@ -3,11 +3,13 @@ import { combineReducers } from "redux";
 import listTask from "./tasks";
 import taskEditing from "./taskEditing";
 import isAddTask from "./isAddTask";
+import filterTask from "./filterTask";
 
 const myReducers = combineReducers({
   listTask,
   taskEditing,
-  isAddTask
+  isAddTask,
+  filterTask
 });
 
 export default myReducers;

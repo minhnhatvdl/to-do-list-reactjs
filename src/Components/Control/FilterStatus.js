@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../Actions/index";
 
 class FilterStatus extends Component {
   render() {
@@ -63,4 +65,15 @@ class FilterStatus extends Component {
   }
 }
 
-export default FilterStatus;
+const mapDispatchToProps = dispatch => {
+  return {
+    filterTask: (filterType, filterValue) => {
+      dispatch(actions.filterTask(filterType, filterValue));
+    }
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(FilterStatus);

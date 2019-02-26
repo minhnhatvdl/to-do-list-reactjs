@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../Actions/index";
 
 class FilterLabel extends Component {
   render() {
@@ -63,4 +65,15 @@ class FilterLabel extends Component {
   }
 }
 
-export default FilterLabel;
+const mapDispatchToProps = dispatch => {
+  return {
+    filterTask: (filterType, filterValue) => {
+      dispatch(actions.filterTask(filterType, filterValue));
+    }
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(FilterLabel);

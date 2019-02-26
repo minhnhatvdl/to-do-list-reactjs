@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../Actions/index";
 
 class FilterPriority extends Component {
   filterPriority(event) {
     this.props.filterTask("priority", event.target.value);
   }
   render() {
-    // const { filterType, filterValue, filterTask } = this.props;
     return (
       <div className="form-group text-left">
         <label htmlFor="sel1">Priority</label>
@@ -31,4 +32,15 @@ class FilterPriority extends Component {
   }
 }
 
-export default FilterPriority;
+const mapDispatchToProps = dispatch => {
+  return {
+    filterTask: (filterType, filterValue) => {
+      dispatch(actions.filterTask(filterType, filterValue));
+    }
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(FilterPriority);

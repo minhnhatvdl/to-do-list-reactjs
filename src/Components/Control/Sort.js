@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../Actions/index";
 
 class Sort extends Component {
   sortTask(event) {
@@ -21,4 +23,15 @@ class Sort extends Component {
   }
 }
 
-export default Sort;
+const mapDispatchToProps = dispatch => {
+  return {
+    filterTask: (filterType, filterValue) => {
+      dispatch(actions.filterTask(filterType, filterValue));
+    }
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Sort);

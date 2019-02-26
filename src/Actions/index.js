@@ -57,3 +57,11 @@ export const changeStatusTask = taskUpdating => {
         taskUpdating
     }
 }
+// filter tasks
+export const filterTask = (filterType, filterValue) => {
+    return {
+        type: types.FILTER_TASK,
+        filterType,
+        filterValue
+    }
+}

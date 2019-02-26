@@ -1,20 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import * as actions from "../Actions/index";
 import Item from "./Task/Item";
 import Thead from "./Task/Thead";
 
 class Task extends Component {
+  // search task
   searchTask(event) {
     this.props.filterTask(event.target.name, event.target.value);
   }
   render() {
-    const {
-      listTask,
-      editTask,
-      changeStatus,
-      filterType,
-      filterValue
-    } = this.props;
+    const { listTask, filterType, filterValue } = this.props;
     let listTaskFilter = [...listTask];
     if (filterValue !== "-1") {
       switch (filterType) {
@@ -87,13 +83,7 @@ class Task extends Component {
     const templateListTask =
       listTaskFilter.length > 0 ? (
         listTaskFilter.map((task, index) => (
-          <Item
-            key={index}
-            item={task}
-            index={index}
-            editTask={editTask}
-            changeStatus={changeStatus}
-          />
+          <Item key={index} item={task} index={index} />
         ))
       ) : (
         <tr>
@@ -134,12 +124,24 @@ class Task extends Component {
     );
   }
 }
+
 const mapStateToProps = state => {
+  const { listTask, filterTask } = state;
   return {
-    listTask: state.listTask
+    listTask,
+    filterType: filterTask.filterType,
+    filterValue: filterTask.filterValue
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    filterTask: (filterType, filterValue) => {
+      dispatch(actions.filterTask(filterType, filterValue));
+    }
   };
 };
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Task);

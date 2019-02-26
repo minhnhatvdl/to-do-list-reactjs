@@ -52,16 +52,16 @@
   background-color: lightgreen;
 }
 
-.filter--label ul>li:nth-child(1) > i{
+.filter--label ul>li:nth-child(2) > i{
   color: #389E0D ;
 }
-.filter--label ul>li:nth-child(2) > i{
+.filter--label ul>li:nth-child(3) > i{
   color: #722ED1 ;
 }
-.filter--label ul>li:nth-child(3) > i{
+.filter--label ul>li:nth-child(4) > i{
   color: #13C2C2 ;
 }
-.filter--label ul>li:nth-child(4) > i{
+.filter--label ul>li:nth-child(5) > i{
   color: #CF1322  ;
 }
 
